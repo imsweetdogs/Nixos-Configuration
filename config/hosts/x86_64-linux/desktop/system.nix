@@ -3,6 +3,8 @@
         ../common/system.nix
     ];
 
+    modules.fs.btrfs.device = "/dev/sdd";
+
     boot.kernelPackages = pkgs.linuxPackages_latest;
     nix.settings.auto-optimise-store = true;
     powerManagement.cpuFreqGovernor = "performance";
