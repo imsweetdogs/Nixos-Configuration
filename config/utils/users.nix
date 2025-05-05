@@ -1,3 +1,3 @@
 { flake, ... }: {
-  imports = map (user: "${flake.conf.users}/${user}") flake.conf.lusers;
+    imports = map (user: "${flake.conf.structure.users}/${user}") flake.conf.system.users;
 }

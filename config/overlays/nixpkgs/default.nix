@@ -1,5 +1,4 @@
 {inputs, ...}: {
-  # nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     (final: _prev: {
       stable = import inputs.stable {

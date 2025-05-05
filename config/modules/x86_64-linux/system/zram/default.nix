@@ -10,7 +10,7 @@ in {
     
     algorithm = mkOption {
       type = types.str;
-      default = "lz4";
+      default = "zstd";
       description = "Алгоритм сжатия для zram";
     };
     
@@ -22,7 +22,7 @@ in {
     
     priority = mkOption {
       type = types.int;
-      default = 999;
+      default = 1000;
       description = "Приоритет использования zram (выше будет использоваться раньше)";
     };
   };

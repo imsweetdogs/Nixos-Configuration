@@ -1,29 +1,22 @@
-{ lib, flake, modulesPath, ... }: {
+{ flake, lib, modulesPath, ... }: {
     imports = [
-        "${flake.conf.overlays}/nixpkgs"
-        flake.conf.modules
-
+        "${flake.conf.structure.modules}/x86_64-linux"
         (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-    modules.fs.btrfs = {
-        enable = true;
-        device = "/dev/sdc";
-    };
-
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-    # Конфигурация загрузчика (GRUB по умолчанию)
-    modules.system.boot.enable = lib.mkDefault true;
-    modules.system.boot.type = lib.mkDefault "grub";
+     modules.fs.btrfs.enable = lib.mkDefault true;
 
-    # Включение модулей по умолчанию
+    modules.system.boot = {
+        enable = lib.mkDefault true;
+        type = lib.mkDefault "grub";
+    };
+
     modules.system.gc.enable = lib.mkDefault true;
-    modules.system.root.enable = lib.mkDefault true;
-    modules.system.locales.enable = lib.mkDefault true;
     modules.system.network.enable = lib.mkDefault true;
+    modules.system.root.enable = lib.mkDefault true;
 
-    # Версия системы
-    system.stateVersion = lib.mkDefault flake.conf.stateVersion; 
-    time.timeZone = lib.mkDefault flake.conf.timeZone;
+    system.stateVersion = lib.mkDefault flake.conf.system.stateVersion; 
+    time.timeZone = lib.mkDefault flake.conf.system.timeZone;
 }
