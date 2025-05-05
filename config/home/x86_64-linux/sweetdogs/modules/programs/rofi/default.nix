@@ -3,9 +3,9 @@
 with lib;
 
 let
-  cfg = config.modules.programs.rofi;
+  cfg = config.homeModules.programs.rofi;
 in {
-  options.modules.programs.rofi = {
+  options.homeModules.programs.rofi = {
     enable = mkEnableOption "Enable rofi";
   };
   

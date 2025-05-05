@@ -3,9 +3,9 @@
 with lib;
 
 let
-  cfg = config.modules.programs.firefox;
+  cfg = config.homeModules.programs.firefox;
 in {
-  options.modules.programs.firefox = {
+  options.homeModules.programs.firefox = {
     enable = mkEnableOption "Enable firefox";
   };
   

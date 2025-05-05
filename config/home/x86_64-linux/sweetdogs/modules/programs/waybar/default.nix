@@ -3,9 +3,9 @@
 with lib;
 
 let
-  cfg = config.modules.programs.waybar;
+  cfg = config.homeModules.programs.waybar;
 in {
-  options.modules.programs.waybar = {
+  options.homeModules.programs.waybar = {
     enable = mkEnableOption "Enable waybar";
   };
   

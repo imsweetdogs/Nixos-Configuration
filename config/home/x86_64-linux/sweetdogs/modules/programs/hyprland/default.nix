@@ -3,9 +3,9 @@
 with lib;
 
 let
-  cfg = config.modules.programs.hyprland;
+  cfg = config.homeModules.programs.hyprland;
 in {
-  options.modules.programs.hyprland = {
+  options.homeModules.programs.hyprland = {
     enable = mkEnableOption "Enable hyprland";
   };
   

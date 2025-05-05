@@ -3,9 +3,9 @@
 with lib;
 
 let
-  cfg = config.modules.programs.chromium;
+  cfg = config.homeModules.programs.chromium;
 in {
-  options.modules.programs.chromium = {
+  options.homeModules.programs.chromium = {
     enable = mkEnableOption "Enable chromium";
   };
   
