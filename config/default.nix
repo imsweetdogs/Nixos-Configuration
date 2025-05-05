@@ -1,5 +1,6 @@
 {
     structure = {
+        home = ./home;
         hosts = ./hosts;
         modules = ./modules;
         overlays = ./overlays;
