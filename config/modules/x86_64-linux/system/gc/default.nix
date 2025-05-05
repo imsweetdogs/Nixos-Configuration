@@ -6,7 +6,7 @@ let
   cfg = config.modules.system.gc;
 in {
   options.modules.system.gc = {
-    enable = mkEnableOption "Сборка мусора";
+    enable = mkEnableOption "Garbage collection";
   };
 
   config = mkIf cfg.enable {

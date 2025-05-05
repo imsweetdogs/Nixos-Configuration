@@ -6,12 +6,12 @@ let
   cfg = config.modules.hardware.graphics;
 in {
   options.modules.hardware.graphics = {
-    enable = mkEnableOption "Поддержка графики";
+    enable = mkEnableOption "Graphics support";
     
     enable32Bit = mkOption {
       type = types.bool;
       default = true;
-      description = "Включить 32-битную поддержку для графики";
+      description = "Enable 32-bit support for graphics";
     };
   };
 

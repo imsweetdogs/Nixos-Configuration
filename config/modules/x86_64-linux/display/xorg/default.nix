@@ -6,13 +6,13 @@ let
   cfg = config.modules.display.xorg;
 in {
   options.modules.display.xorg = {
-    enable = mkEnableOption "Поддержка X.org сервера";
+    enable = mkEnableOption "X.org server support";
     
     videoDrivers = mkOption {
       type = types.listOf types.str;
       default = [];
       example = [ "amdgpu" "nvidia" "intel" ];
-      description = "Список видеодрайверов для использования";
+      description = "List of video drivers to use";
     };
   };
 

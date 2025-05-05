@@ -6,7 +6,7 @@ let
   cfg = config.modules.hardware.tablet;
 in {
   options.modules.hardware.tablet = {
-    enable = mkEnableOption "Поддержка графических планшетов";
+    enable = mkEnableOption "Graphics tablet support";
   };
 
   config = mkIf cfg.enable {

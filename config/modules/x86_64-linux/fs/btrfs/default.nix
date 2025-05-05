@@ -6,38 +6,38 @@ let
   cfg = config.modules.fs.btrfs;
 in {
   options.modules.fs.btrfs = {
-    enable = mkEnableOption "Включение и настройка файловой системы btrfs";
+    enable = mkEnableOption "Enable and configure btrfs";
     
     device = mkOption {
       type = types.str;
       default = "/dev/nvme0n1";
-      description = "Путь к устройству для btrfs";
+      description = "Path to the device for btrfs";
     };
     
     espSize = mkOption {
       type = types.str;
       default = "128M";
       example = "1G";
-      description = "Размер ESP (EFI System Partition)";
+      description = "ESP (EFI System Partition) size";
     };
     
     swapSize = mkOption {
       type = types.str;
       default = "8G";
       example = "16G";
-      description = "Размер раздела подкачки (swap)";
+      description = "Swap partition size";
     };
     
     enableLUKS = mkOption {
       type = types.bool;
       default = false;
-      description = "Включить LUKS шифрование для root раздела";
+      description = "Enable LUKS encryption for the root partition";
     };
 
     luksPassFile = mkOption {
       type = types.nullOr types.path;
       default = null;
-      description = "Файл с паролем для LUKS (null = запрос пароля при загрузке)";
+      description = "File with the password for LUKS (null = request password at boot)";
     };
 
     subvolumes = mkOption {
@@ -45,12 +45,12 @@ in {
         options = {
           mountpoint = mkOption {
             type = types.str;
-            description = "Точка монтирования подтома";
+            description = "Subvolume mount point";
           };
           options = mkOption {
             type = types.listOf types.str;
             default = [ "defaults" ];
-            description = "Опции монтирования для подтома";
+            description = "Mount options for the subvolume";
           };
         };
       });
@@ -68,7 +68,7 @@ in {
           options = [ "defaults" "noatime" "compress=zstd:7" ];
         };
       };
-      description = "Подтома btrfs и их настройки";
+      description = "btrfs subvolumes and their settings";
     };
   };
 

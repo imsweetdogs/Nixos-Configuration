@@ -6,7 +6,7 @@
 
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-     modules.fs.btrfs.enable = lib.mkDefault true;
+    modules.fs.btrfs.enable = lib.mkDefault true;
 
     modules.system.boot = {
         enable = lib.mkDefault true;

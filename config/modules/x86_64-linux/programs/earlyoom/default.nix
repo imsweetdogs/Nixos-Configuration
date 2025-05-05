@@ -8,7 +8,7 @@
   cfg = config.modules.programs.earlyoom;
 in {
   options = {
-    modules.programs.earlyoom.enable = mkEnableOption "Раннее завершение процессов при нехватке памяти";
+    modules.programs.earlyoom.enable = mkEnableOption "Earlyoom memory killer";
   };
 
   config = mkIf cfg.enable {

@@ -6,24 +6,24 @@ let
   cfg = config.modules.system.zram;
 in {
   options.modules.system.zram = {
-    enable = mkEnableOption "Поддержка zram для виртуальной памяти";
+    enable = mkEnableOption "ZRAM support";
     
     algorithm = mkOption {
       type = types.str;
       default = "zstd";
-      description = "Алгоритм сжатия для zram";
+      description = "Compression algorithm for zram";
     };
     
     memoryPercent = mkOption {
       type = types.int;
       default = 100;
-      description = "Процент от RAM, используемый для zram";
+      description = "Percentage of RAM used for zram";
     };
     
     priority = mkOption {
       type = types.int;
       default = 1000;
-      description = "Приоритет использования zram (выше будет использоваться раньше)";
+      description = "Priority for zram usage (higher will be used first)";
     };
   };
 

@@ -6,12 +6,12 @@ let
   cfg = config.modules.display.dm.sddm;
 in {
   options.modules.display.dm.sddm = {
-    enable = mkEnableOption "Поддержка менеджера дисплея SDDM";
+    enable = mkEnableOption "SDDM display manager support";
     
     theme = mkOption {
       type = types.nullOr types.str;
       default = null;
-      description = "Тема для SDDM менеджера дисплея";
+      description = "SDDM theme";
     };
   };
 

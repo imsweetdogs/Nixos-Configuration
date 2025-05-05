@@ -6,7 +6,7 @@ let
   cfg = config.modules.system.sysctl;
 in {
   options.modules.system.sysctl = {
-    enable = mkEnableOption "Оптимизированные настройки sysctl";
+    enable = mkEnableOption "Optimized sysctl settings";
   };
 
   config = mkIf cfg.enable {

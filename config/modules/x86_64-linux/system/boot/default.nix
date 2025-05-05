@@ -6,24 +6,24 @@ let
   cfg = config.modules.system.boot;
 in {
   options.modules.system.boot = {
-    enable = mkEnableOption "Настройка загрузчика";
+    enable = mkEnableOption "Boot loader settings";
     
     type = mkOption {
       type = types.enum [ "grub" "systemd-boot" "none" ];
       default = "grub";
-      description = "Тип загрузчика для использования";
+      description = "Boot loader type to use. grub, systemd-boot or none";
     };
     
     theme = mkOption {
       type = types.nullOr types.path;
       default = null;
-      description = "Путь к теме для GRUB";
+      description = "Path to the GRUB theme";
     };
     
     splashImage = mkOption {
       type = types.nullOr types.path;
       default = null;
-      description = "Путь к фоновому изображению для GRUB";
+      description = "Path to the GRUB splash image";
     };
   };
   

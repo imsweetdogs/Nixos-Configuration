@@ -6,7 +6,7 @@ let
   cfg = config.modules.system.root;
 in {
   options.modules.system.root = {
-    enable = mkEnableOption "Базовая настройка root пользователя";
+    enable = mkEnableOption "Base root user settings";
   };
 
   config = mkIf cfg.enable {

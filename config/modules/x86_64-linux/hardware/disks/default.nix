@@ -6,12 +6,12 @@ let
   cfg = config.modules.hardware.disks;
 in {
   options.modules.hardware.disks = {
-    enable = mkEnableOption "Поддержка управления дисками";
+    enable = mkEnableOption "Disk management support";
     
     gui = mkOption {
       type = types.bool;
       default = false;
-      description = "Включить GNOME Disks для управления дисками";
+      description = "Enable GNOME Disks for disk management";
     };
   };
 

@@ -32,8 +32,6 @@
     };
     modules.display.wm.hyprland = {
         enable = true;
-        package = inputs.hyprland.packages.${pkgs.system}.default;
-        portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
     modules.display.dm.sddm.enable = true;
 
@@ -42,7 +40,7 @@
     modules.programs.flatpak.enable = true;
     modules.programs.steam = {
         enable = true;
-        package = pkgs.master-unfree.steam;
+        package = pkgs.unstable-unfree.steam;
         hardware = true;
         protonGE = true;
         protontricks = true;

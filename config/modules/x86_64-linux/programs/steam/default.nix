@@ -6,43 +6,43 @@ let
   cfg = config.modules.programs.steam;
 in {
   options.modules.programs.steam = {
-    enable = mkEnableOption "Поддержка Steam";
+    enable = mkEnableOption "Steam support";
     
     package = mkOption {
       type = types.package;
       default = pkgs.steam;
       defaultText = literalExpression "pkgs.steam";
-      description = "Пакет Steam для использования (поддержка проброса из оверлеев)";
+      description = "Steam package to use (support for port forwarding from overlays)";
     };
     
     hardware = mkOption {
       type = types.bool;
       default = true;
-      description = "Включить поддержку Steam-совместимого оборудования";
+      description = "Enable support for Steam-compatible hardware";
     };
     
     protonGE = mkOption {
       type = types.bool;
       default = true;
-      description = "Установить Proton GE для улучшенной совместимости с Windows-играми";
+      description = "Install Proton GE for improved Windows game compatibility";
     };
     
     protontricks = mkOption {
       type = types.bool;
       default = true;
-      description = "Установить Protontricks для тонкой настройки Proton";
+      description = "Install Protontricks for fine-tuning Proton";
     };
     
     gamescope = mkOption {
       type = types.bool;
       default = true;
-      description = "Включить Gamescope сессию";
+      description = "Enable Gamescope session";
     };
     
     gamemode = mkOption {
       type = types.bool;
       default = true;
-      description = "Включить Gamemode для оптимизации производительности во время игр";
+      description = "Enable Gamemode for performance optimization during games";
     };
     
     networking = mkOption {
@@ -51,24 +51,24 @@ in {
           dedicatedServer = mkOption {
             type = types.bool;
             default = true;
-            description = "Открыть порты для выделенных серверов";
+            description = "Open ports for dedicated servers";
           };
           
           localNetworkGame = mkOption {
             type = types.bool;
             default = true;
-            description = "Открыть порты для локальных сетевых игр";
+            description = "Open ports for local network games";
           };
           
           remotePlay = mkOption {
             type = types.bool;
             default = true;
-            description = "Открыть порты для Remote Play";
+            description = "Open ports for Remote Play";
           };
         };
       };
       default = {};
-      description = "Настройки сети для Steam";
+      description = "Network settings for Steam";
     };
   };
 

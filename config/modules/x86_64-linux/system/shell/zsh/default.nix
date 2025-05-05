@@ -6,7 +6,7 @@ let
   cfg = config.modules.system.shell.zsh;
 in {
   options.modules.system.shell.zsh = {
-    enable = mkEnableOption "Настройка оболочки zsh";
+    enable = mkEnableOption "ZSH Shell include for all users";
   };
 
   config = mkIf cfg.enable {

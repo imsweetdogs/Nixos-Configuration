@@ -6,24 +6,24 @@ let
   cfg = config.modules.display.wm.hyprland;
 in {
   options.modules.display.wm.hyprland = {
-    enable = mkEnableOption "Поддержка Hyprland";
+    enable = mkEnableOption "Hyprland support";
     
     xwayland = mkOption {
       type = types.bool;
       default = true;
-      description = "Включить поддержку XWayland для запуска X11 приложений";
+      description = "Enable XWayland support for running X11 applications";
     };
     
     package = mkOption {
       type = types.nullOr types.package;
       default = null;
-      description = "Пакет Hyprland для использования. Если null, используется стандартный пакет.";
+      description = "Hyprland package to use. If null, the default package will be used.";
     };
     
     portalPackage = mkOption {
       type = types.nullOr types.package;
       default = null;
-      description = "Пакет xdg-desktop-portal-hyprland для использования. Если null, используется стандартный пакет.";
+      description = "xdg-desktop-portal-hyprland package to use. If null, the default package will be used.";
     };
   };
 

@@ -6,18 +6,18 @@ let
   cfg = config.modules.hardware.pipewire;
 in {
   options.modules.hardware.pipewire = {
-    enable = mkEnableOption "Поддержка аудио через PipeWire";
+    enable = mkEnableOption "Audio support via PipeWire";
     
     lowLatency = mkOption {
       type = types.bool;
       default = false;
-      description = "Включить настройки низкой задержки для аудио";
+      description = "Enable low latency settings for audio";
     };
     
     support32Bit = mkOption {
       type = types.bool;
       default = true;
-      description = "Включить 32-битную поддержку для ALSA";
+      description = "Enable 32-bit support for ALSA";
     };
   };
 

@@ -6,12 +6,12 @@ let
   cfg = config.modules.hardware.bluetooth;
 in {
   options.modules.hardware.bluetooth = {
-    enable = mkEnableOption "Поддержка Bluetooth";
+    enable = mkEnableOption "Bluetooth support";
     
     gui = mkOption {
       type = types.bool;
       default = false;
-      description = "Включить графический интерфейс Blueman для управления Bluetooth";
+      description = "Enable the Blueman graphical interface for managing Bluetooth";
     };
   };
 
