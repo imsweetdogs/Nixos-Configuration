@@ -15,7 +15,8 @@
         waybar.enable = true;
         git.enable = true;
         firefox.enable = true;
-        # chromium.enable = true;
+        chromium.enable = true;
+        hyprland.enable = true;
     };
 
     home = {
@@ -24,8 +25,11 @@
         stateVersion = "25.05";
 
         packages = with pkgs; [
+            unstable-unfree.vscode
+            unstable-unfree.osu-lazer-bin
             pavucontrol
             vesktop
+            
 
             cmatrix
             pipes-rs
