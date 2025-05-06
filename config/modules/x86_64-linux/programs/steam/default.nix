@@ -10,7 +10,7 @@ in {
     
     package = mkOption {
       type = types.package;
-      default = pkgs.steam;
+      default = pkgs.unstable-unfree.steam;
       defaultText = literalExpression "pkgs.steam";
       description = "Steam package to use (support for port forwarding from overlays)";
     };

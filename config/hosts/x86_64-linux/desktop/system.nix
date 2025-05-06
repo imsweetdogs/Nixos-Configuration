@@ -3,8 +3,6 @@
         ../common/system.nix
     ];
 
-    modules.fs.btrfs.device = "/dev/sdd";
-
     boot.kernelPackages = pkgs.linuxPackages_latest;
     nix.settings.auto-optimise-store = true;
     powerManagement.cpuFreqGovernor = "performance";
@@ -32,28 +30,13 @@
         enable = true;
         videoDrivers = [ "amdgpu" ];  
     };
-    modules.display.wm.hyprland = {
-        enable = true;
-    };
+    modules.display.wm.hyprland.enable = true;
     modules.display.dm.sddm.enable = true;
 
     modules.programs.adb.enable = true;
     modules.programs.earlyoom.enable = true;
     modules.programs.flatpak.enable = true;
-    modules.programs.steam = {
-        enable = true;
-        package = pkgs.unstable-unfree.steam;
-        hardware = true;
-        protonGE = true;
-        protontricks = true;
-        gamescope = true;
-        gamemode = true;
-        networking = {
-            dedicatedServer = true;
-            localNetworkGame = true;
-            remotePlay = true;
-        };
-    };
+    modules.programs.steam.enable = true;
 
     nix.settings = {
         substituters = [
