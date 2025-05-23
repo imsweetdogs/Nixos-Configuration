@@ -24,7 +24,7 @@
         systems = inputs.nixpkgs.lib.systems.flakeExposed;
 
         flake = {
-
+            conf = import ./config;
         };
     };
 }
