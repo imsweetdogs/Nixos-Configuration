@@ -2,6 +2,7 @@
     structure = {
         overlays = ./overlays;
         secrets = ./secrets;
+        shells = ./shells;
     };
 
     system = {
