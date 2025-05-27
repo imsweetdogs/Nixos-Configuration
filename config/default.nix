@@ -10,5 +10,6 @@
         stateVersion = "25.05";
         users = ["sweetdogs"];
         # hostname = "my-pc";
+        # device = "/dev/sda"
     };
 }
