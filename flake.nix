@@ -18,6 +18,8 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        inputs.sops-nix.url = "github:Mic92/sops-nix";
     };
 
     outputs = { self, flake-parts, ... }@inputs: flake-parts.lib.mkFlake { inherit inputs; } {
