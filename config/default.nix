@@ -1,5 +1,6 @@
 {
     structure = {
+        modules = ./modules;
         overlays = ./overlays;
         secrets = ./secrets;
         shells = ./shells;
