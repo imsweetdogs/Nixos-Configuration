@@ -20,6 +20,8 @@
         };
 
         inputs.sops-nix.url = "github:Mic92/sops-nix";
+
+        impermanence.url = "github:/nix-community/impermanence";
     };
 
     outputs = { self, flake-parts, ... }@inputs: flake-parts.lib.mkFlake { inherit inputs; } {
