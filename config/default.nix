@@ -3,7 +3,7 @@
     timeZone = "Europe/Moscow";
     stateVersion = "25.05";
     users = [ "sweetdogs" ];
-    baseHashedPassword = "$6$pokedim13$2HDvjLbVa6wItmJRywWvxO2dB2Wxopjvt3DY9CU3qMJc/8Ho6eoV8PWcUG/0M03avtMb1DYKQT63ZpYqPCUWL1"; # mkpasswd
+    baseHashedPassword = "$6$sweetdogs$tfWuwb0.wWlBGveduqu253BwOnoXmcDDH3fkWqvo0pLT5etrNXjyfG8ABIVSLyQSfR.nlnbrL3eC7LwXnAFcK1"; # mkpasswd
   };
   path = ./.;
 }
