@@ -27,5 +27,13 @@ in {
       man.enable = mkDefault false;
       nixos.enable = mkDefault false;
     };
+
+    nix.settings.auto-optimise-store = true;
+
+    nix.settings = {
+      substituters = [
+        "https://nixos-cache-proxy.sweetdogs.ru"
+      ];
+    };
   };
 }
