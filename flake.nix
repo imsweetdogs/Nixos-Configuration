@@ -4,8 +4,8 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
 
-    sops-nix.url = "github:Mic92/sops-nix";
-    impermanence.url = "github:/nix-community/impermanence";
+    # sops-nix.url = "github:Mic92/sops-nix";
+    # impermanence.url = "github:/nix-community/impermanence";
 
     master.url = "github:nixos/nixpkgs/master";
     unstable.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -17,10 +17,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # home-manager = {
+    #   url = "github:nix-community/home-manager";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs = { self, flake-parts, ... }@inputs: flake-parts.lib.mkFlake { inherit inputs; } {

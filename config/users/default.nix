@@ -1,1 +1,0 @@
-{ flake, ... }: { imports = map (user: "${flake.conf.path}/users/${user}") flake.conf.system.users; }
