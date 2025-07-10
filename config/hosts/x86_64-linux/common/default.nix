@@ -1,4 +1,4 @@
-{ inputs, flake, modulesPath, ... }: {
+{ inputs, flake, modulesPath, lib, ... }: {
   hostname = "common";
   modules = [
     "${flake.conf.path}/overlays/nixpkgs"
