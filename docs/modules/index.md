@@ -25,6 +25,8 @@ config/
 |------|------------|
 | [system/boot](system/boot.md) | Управление загрузчиком (GRUB или systemd-boot) |
 | [system/env](system/env.md) | Глобальные переменные окружения |
+| [system/i18n/locales](system/i18n/locales.md) | Локали системы: значение по умолчанию и список поддерживаемых |
+| [system/i18n/timezone](system/i18n/timezone.md) | Настройка часового пояса |
 
 > Таблица будет пополняться по мере добавления новых модулей.
 
