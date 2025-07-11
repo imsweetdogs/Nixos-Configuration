@@ -39,6 +39,17 @@
    ```bash
    git clone https://github.com/pokedim13/NixOS-Configuration.git
    ```
+3. Меняем параметры в конфиге под себя, см полностью документацию.
+4. Размечаем диск:
+
+   ```bash
+   sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode disko --flake .#<hostname>
+   ```
+5. Ставим систему:
+
+   ```bash
+   sudo nixos-install --no-root-password --flake .#<hostname>
+   ```
 
 ---
 
