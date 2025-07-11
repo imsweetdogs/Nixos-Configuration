@@ -9,13 +9,14 @@
 | Опция | Тип | По умолчанию | Описание |
 |-------|-----|--------------|----------|
 | `modules.system.sysctl.enable` | `bool` | `false` | Включает модуль. |
-| `modules.system.sysctl.extraSettings` | `attrset` | `{}` | Дополнительные или переопределяющие параметры sysctl. |
+| `modules.system.sysctl.defaultSettings` | `attrset` | см. ниже | Базовые параметры sysctl, применяемые модулем; можно переопределить отдельные ключи или весь набор. |
+| `modules.system.sysctl.extraSettings` | `attrset` | `{}` | Дополнительные параметры, объединяемые с `defaultSettings` (переопределяют совпадающие ключи). |
 
 ---
 
-## Значения по умолчанию
+## Значения по умолчанию (defaultSettings)
 
-При активации модуль задаёт следующие параметры:
+По умолчанию модуль задаёт следующие значения в `defaultSettings`:
 
 | Ключ | Значение |
 |------|----------|
@@ -42,9 +43,14 @@
 ```nix
 modules.system.sysctl = {
   enable = true;
+
+  # Переопределяем базовый параметр
+  defaultSettings."vm.swappiness" = "5";
+
+  # Добавляем дополнительные параметры
   extraSettings = {
     "net.ipv4.tcp_fin_timeout" = "15";
-    "vm.max_map_count" = "262144";
+    "vm.max_map_count"      = "262144";
   };
 };
 ```

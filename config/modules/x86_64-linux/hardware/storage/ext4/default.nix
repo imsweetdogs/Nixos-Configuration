@@ -18,6 +18,12 @@ in {
       default = "8G";
       description = "Swap size";
     };
+
+    espSize = mkOption {
+      type = types.str;
+      default = "128M";
+      description = "EFI System Partition (ESP) size";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -36,7 +42,7 @@ in {
           ESP = {
             name = "NIXESP";
             type = "EF00";
-            size = "128M";
+            size = cfg.espSize;
             content = {
               type = "filesystem";
               format = "vfat";

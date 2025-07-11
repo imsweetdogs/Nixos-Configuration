@@ -18,6 +18,39 @@ in {
       default = "8G";
       description = "Swap size";
     };
+
+    espSize = mkOption {
+      type = types.str;
+      default = "128M";
+      description = "EFI System Partition (ESP) size";
+    };
+
+    subvolumes = mkOption {
+      type = types.attrs;
+      default = {
+        "@root" = {
+          mountpoint = "/";
+          mountOptions = [ "compress=zstd" "noatime" ];
+        };
+        "@nix" = {
+          mountpoint = "/nix";
+          mountOptions = [ "compress=zstd" "noatime" ];
+        };
+        "@home" = {
+          mountpoint = "/home";
+          mountOptions = [ "compress=zstd:7" "noatime" ];
+        };
+        "@persist" = {
+          mountpoint = "/persist";
+          mountOptions = [ "compress=zstd:3" "noatime" ];
+        };
+      };
+      description = "Btrfs subvolume configuration attrset keyed by subvol name.";
+      example = {
+        "@root".mountOptions = [ "compress=zstd:15" "noatime" ];
+        "@snapshots" = { mountpoint = "/.snapshots"; mountOptions = [ "compress=zstd" "noatime" ]; };
+      };
+    };
   };
 
   config = mkIf cfg.enable {
@@ -36,7 +69,7 @@ in {
           ESP = {
             name = "NIXESP";
             type = "EF00";
-            size = "128M";
+            size = cfg.espSize;
             content = {
               type = "filesystem";
               format = "vfat";
@@ -58,24 +91,7 @@ in {
             size = "100%";
             content = {
               type = "btrfs";
-              subvolumes = {
-                "@root" = {
-                  mountpoint = "/";
-                  mountOptions = [ "compress=zstd" "noatime" ];
-                };
-                "@nix" = {
-                  mountpoint = "/nix";
-                  mountOptions = [ "compress=zstd" "noatime" ];
-                };
-                "@home" = {
-                  mountpoint = "/home";
-                  mountOptions = [ "compress=zstd:7" "noatime" ];
-                };
-                "@persist" = {
-                  mountpoint = "/persist";
-                  mountOptions = [ "compress=zstd:3" "noatime" ];
-                };
-              };
+              subvolumes = cfg.subvolumes;
             };
           };
         };
