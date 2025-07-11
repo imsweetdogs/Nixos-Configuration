@@ -28,6 +28,12 @@ config/
 | [system/i18n/locales](system/i18n/locales.md) | Локали системы: значение по умолчанию и список поддерживаемых |
 | [system/i18n/timezone](system/i18n/timezone.md) | Настройка часового пояса |
 | [system/nix](system/nix.md) | Расширенная конфигурация Nix и его сервисов |
+| [system/root](system/root.md) | Настройки root-пользователя (пароль, неизменяемость) |
+| [system/shell/zsh](system/shell/zsh.md) | Включение Zsh и установка его как оболочки по умолчанию |
+| [system/sysctl](system/sysctl.md) | Оптимизация параметров ядра через sysctl |
+| [network/nm](network/nm.md) | Включение NetworkManager как службы сети |
+| [hardware/storage/btrfs](hardware/storage/btrfs.md) | Разметка диска с btrfs и subvolume-ами через disko |
+| [hardware/storage/ext4](hardware/storage/ext4.md) | Разметка диска с ext4 через disko |
 
 > Таблица будет пополняться по мере добавления новых модулей.
 
