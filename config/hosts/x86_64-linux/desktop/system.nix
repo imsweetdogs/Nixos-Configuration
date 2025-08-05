@@ -1,4 +1,4 @@
-{ inputs, flake, lib, modulesPath, ... }: {
+{ inputs, flake, lib, modulesPath, pkgs, ... }: {
     imports = [
         (import "${flake.conf.path}/modules" { path = "${flake.conf.path}/modules/x86_64-linux"; lib = lib; })
         (modulesPath + "/installer/scan/not-detected.nix")
