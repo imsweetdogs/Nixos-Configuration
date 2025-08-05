@@ -1,7 +1,7 @@
 {
     description = "Sweetdogs Nixos system configuration";
 
-    inputs = {
+    inputs =  {
         flake-parts.url = "github:hercules-ci/flake-parts";
 
         master.url = "github:nixos/nixpkgs/master";
@@ -13,22 +13,18 @@
             url = "github:nix-community/disko";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
-        home-manager = {
-            url = "github:nix-community/home-manager";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
-
-        sops-nix.url = "github:Mic92/sops-nix";
-
-        impermanence.url = "github:/nix-community/impermanence";
     };
 
     outputs = { self, flake-parts, ... }@inputs: flake-parts.lib.mkFlake { inherit inputs; } {
         systems = inputs.nixpkgs.lib.systems.flakeExposed;
 
-        flake = {
+        flake = rec {
             conf = import ./config;
+
+            nixosConfigurations = import "${conf.path}/hosts" {
+                inherit inputs;
+                flake = self;
+            };
         };
     };
 }
