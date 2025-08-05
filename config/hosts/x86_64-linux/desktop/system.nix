@@ -63,5 +63,6 @@
         firefox
         git
         pavucontrol
+        waybar
     ];
 }
