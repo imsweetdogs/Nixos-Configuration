@@ -13,7 +13,7 @@ let
         "${flake.conf.path}/overlays/nixpkgs"
         "${flake.conf.path}/users"
         { networking.hostName = hostname; }
-        { system.stateVersion = flake.conf.system.stateVersion; }
+        { system.stateVersion = flake.conf.system.stateVersion or "25.05"; }
         inputs.disko.nixosModules.disko
       ] ++ modules;
     };

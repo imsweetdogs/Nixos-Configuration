@@ -38,13 +38,33 @@
         "type": "github"
       }
     },
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1754444017,
+        "narHash": "sha256-PyxmeamNheSNZICr8vvanf0F3YQf9DPCu2qErVC2A7k=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "a3790776751d1a6365aa0717f509d05adee90734",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "master": {
       "locked": {
-        "lastModified": 1754432566,
-        "narHash": "sha256-P1AOq3YLHBL5EPrJoY7rC6esfutnpDICaPO7inXsZvU=",
+        "lastModified": 1754441290,
+        "narHash": "sha256-NASQzg8LfJocGlsVnj2lvdEP08EQUj8S6dxDuh2PXpw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "eb6f0329fe4ec7d1d7ddc1c85ceb451f0b66d9aa",
+        "rev": "52b60bbd9f7e65cb36887875f860506bdccd4daa",
         "type": "github"
       },
       "original": {
@@ -73,6 +93,7 @@
       "inputs": {
         "disko": "disko",
         "flake-parts": "flake-parts",
+        "home-manager": "home-manager",
         "master": "master",
         "nixpkgs": [
           "unstable"

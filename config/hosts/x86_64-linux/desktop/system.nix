@@ -2,6 +2,7 @@
     imports = [
         (import "${flake.conf.path}/modules" { path = "${flake.conf.path}/modules/x86_64-linux"; lib = lib; })
         (modulesPath + "/installer/scan/not-detected.nix")
+        flake.inputs.home-manager.nixosModules.home-manager
     ];
 
     # Base system reguired
@@ -53,11 +54,11 @@
         package = pkgs.unstable-unfree.steam;
     };
 
+    home-manager.users = import "${flake.conf.path}/home" { arch = "x86_64-linux"; users = flake.conf.system.users; };
+
     # Packages
     environment.systemPackages = with pkgs; [
         polkit_gnome
-        appimage-run
-        home-manager
 
         kitty
         firefox

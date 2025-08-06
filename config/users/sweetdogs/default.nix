@@ -9,8 +9,6 @@
       "wheel"
       "input"
       "video"
-      "libvirtd"
-      "adbusers"
     ];
   };
 }
