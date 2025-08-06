@@ -1,7 +1,7 @@
 { inputs, flake, lib, modulesPath, pkgs, ... }: {
     imports = [
         (import "${flake.conf.path}/modules" { path = "${flake.conf.path}/modules/x86_64-linux"; lib = lib; })
-        (import "${flake.conf.path}/modules" { path = ./modules; lib = lib; })
+        (import "${flake.conf.path}/modules" { path = "${./.}/modules"; lib = lib; })
         (modulesPath + "/installer/scan/not-detected.nix")
         flake.inputs.home-manager.nixosModules.home-manager
     ];
@@ -12,22 +12,6 @@
     modules.system.env.enable = true;
     modules.system.nix.enable = true;
     modules.system.zram.enable = true;
-
-    # Hardware modules
-    modules.hardware.graphics.enable = true;
-    modules.hardware.bluetooth = {
-        enable = true;
-        gui = true;
-    };
-    modules.hardware.pipewire = {
-        enable = true;
-        lowLatency = true;
-    };
-    modules.hardware.disks = {
-        enable = true;
-        gui = true;
-    };
-    modules.hardware.tablet.enable = true;
 
     # Display modules
     modules.display.dm.sddm.enable = true;
@@ -41,14 +25,7 @@
         package = pkgs.unstable-unfree.steam;
     };
 
-    # Packages
     environment.systemPackages = with pkgs; [
-        polkit_gnome
-
-        kitty
-        firefox
         git
-        pavucontrol
-        waybar
     ];
 }
