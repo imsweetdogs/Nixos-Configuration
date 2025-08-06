@@ -24,8 +24,4 @@
         enable = true;
         package = pkgs.unstable-unfree.steam;
     };
-
-    environment.systemPackages = with pkgs; [
-        git
-    ];
 }
