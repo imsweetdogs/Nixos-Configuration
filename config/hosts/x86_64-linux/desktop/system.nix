@@ -54,7 +54,11 @@
         package = pkgs.unstable-unfree.steam;
     };
 
-    home-manager.users = import "${flake.conf.path}/home" { arch = "x86_64-linux"; users = flake.conf.system.users; };
+    home-manager.users = import "${flake.conf.path}/home" { 
+        inherit inputs flake;
+        arch = "x86_64-linux"; 
+        users = flake.conf.system.users; 
+    };
 
     # Packages
     environment.systemPackages = with pkgs; [
