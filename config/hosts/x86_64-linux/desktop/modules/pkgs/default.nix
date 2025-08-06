@@ -8,5 +8,4 @@
         pavucontrol
         waybar
     ];
-    sdsdsd
 }
