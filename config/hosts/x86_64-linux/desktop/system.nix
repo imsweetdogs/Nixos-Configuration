@@ -1,23 +1,10 @@
 { inputs, flake, lib, modulesPath, pkgs, ... }: {
     imports = [
         (import "${flake.conf.path}/modules" { path = "${flake.conf.path}/modules/x86_64-linux"; lib = lib; })
+        (import "${flake.conf.path}/modules" { path = ./modules; lib = lib; })
         (modulesPath + "/installer/scan/not-detected.nix")
         flake.inputs.home-manager.nixosModules.home-manager
     ];
-
-    # Base system reguired
-    modules.hardware.storage.btrfs.enable = true;
-
-    modules.network.nm.enable = true;
-
-    modules.system.boot.enable = true;
-    modules.system.i18n = {
-        locales.enable = true;
-        timezone.enable = true;
-    };
-    modules.system.root.enable = true;
-    modules.system.shell.zsh.enable = true;
-    modules.system.sysctl.enable = true;
 
     # Desktop specific
     boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -52,12 +39,6 @@
     modules.programs.steam = {
         enable = true;
         package = pkgs.unstable-unfree.steam;
-    };
-
-    home-manager.users = import "${flake.conf.path}/home" { 
-        inherit inputs flake;
-        arch = "x86_64-linux"; 
-        users = flake.conf.system.users; 
     };
 
     # Packages
