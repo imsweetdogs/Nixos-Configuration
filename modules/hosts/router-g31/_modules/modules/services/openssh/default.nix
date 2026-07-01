@@ -6,6 +6,7 @@
         settings = {
             # Разрешает вход для root только по SSH-ключам
             PermitRootLogin = "prohibit-password"; 
+            PasswordAuthentication = true;
         };
     };
 
