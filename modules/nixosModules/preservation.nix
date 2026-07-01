@@ -1,0 +1,20 @@
+{ inputs, ... }: 
+
+{
+    flake.nixosModules.preservation = { ... }: {
+        imports = [ inputs.preservation.nixosModules.default ];
+
+        preservation = {
+            enable = true;
+            preserveAt."/persistent" = {
+                directories = [
+                    "/var/log"
+                    "/var/lib/nixos"
+                ];
+                files = [
+                    { file = "/etc/machine-id"; inInitrd = true; }
+                ];
+            };
+        };
+    };
+}
